@@ -21,7 +21,6 @@ const PrimaryButton: React.FunctionComponent<Props> = ({ children }) => {
         onPress={pressHandler}
         android_ripple={{ color: '#d35d77' }}
       >
-        <Text>Test</Text>
         <Text style={styles.buttonText}>{children}</Text>
       </Pressable>
     </View>
