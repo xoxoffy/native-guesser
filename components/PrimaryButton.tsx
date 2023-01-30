@@ -7,7 +7,7 @@ interface Props {
 
 const PrimaryButton: React.FunctionComponent<Props> = ({ children }) => {
   const pressHandler = () => {
-    console.log('Pressed!');
+    console.log('!');
   };
 
   return (
