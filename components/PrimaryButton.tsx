@@ -3,13 +3,13 @@ import { View, Text, Pressable, StyleSheet } from 'react-native';
 
 interface Props {
   children: string;
+  onPress?: () => void;
 }
 
-const PrimaryButton: React.FunctionComponent<Props> = ({ children }) => {
-  const pressHandler = () => {
-    console.log('Pressed!');
-  };
-
+const PrimaryButton: React.FunctionComponent<Props> = ({
+  children,
+  onPress,
+}) => {
   return (
     <View style={styles.buttonOuterContainer}>
       <Pressable
@@ -18,7 +18,7 @@ const PrimaryButton: React.FunctionComponent<Props> = ({ children }) => {
             ? [styles.buttonInnerContainer, styles.pressed]
             : styles.buttonInnerContainer
         }
-        onPress={pressHandler}
+        onPress={onPress}
         android_ripple={{ color: '#d35d77' }}
       >
         <Text style={styles.buttonText}>{children}</Text>
