@@ -41,6 +41,7 @@ const StartGameScreen: React.FunctionComponent<Props> = ({
           setEnteredNumber(enteredText);
         }}
         value={enteredNumber}
+        onSubmitEditing={confirmInputHandler}
       />
       <View style={styles.buttonsContainer}>
         <View style={styles.buttonContainer}>
