@@ -1,10 +1,13 @@
 import { Text, TextInput, View, StyleSheet, Alert } from 'react-native';
 import PrimaryButton from '../components/PrimaryButton';
 import { useState } from 'react';
+import { Colors } from './../constants/colors';
 
 interface Props {
   pickedNumberHandler: (pickedNumber: string) => void;
 }
+
+const { primary500 } = Colors;
 
 const StartGameScreen: React.FunctionComponent<Props> = ({
   pickedNumberHandler,
@@ -78,7 +81,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
     borderBottomColor: '#eaf6f6',
     borderBottomWidth: 2,
-    color: '#f76b8a',
+    color: primary500,
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 10,
