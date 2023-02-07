@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from 'react';
+import { FunctionComponent, useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Alert } from 'react-native';
 import Title from '../components/ui/Title';
 import { generateRandomBetween } from './../util/generateRandomBetween';
@@ -7,18 +7,24 @@ import PrimaryButton from '../components/ui/PrimaryButton';
 
 interface Props {
   userNumber: string;
+  gameOverHandler: () => void;
 }
 
 let minBoundary = 1;
 let maxBoundary = 100;
 
-const GameScreen: FunctionComponent<Props> = ({ userNumber }) => {
-  const initialGuess = generateRandomBetween(
-    minBoundary,
-    maxBoundary,
-    userNumber
-  );
+const GameScreen: FunctionComponent<Props> = ({
+  userNumber,
+  gameOverHandler,
+}) => {
+  const initialGuess = generateRandomBetween(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
+
+  useEffect(() => {
+    if (currentGuess === userNumber) {
+      gameOverHandler();
+    }
+  }, [currentGuess, userNumber]);
 
   const nextGuessHandler = (direction: string) => {
     if (
